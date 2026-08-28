@@ -79,8 +79,8 @@ export function AccordionBasic() {
             initial={false}
             className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${
               isOpen
-                ? "bg-neutral-50/80 dark:bg-[#E72D87]/5 border-[#E72D87]/30"
-                : "bg-neutral-50/40 dark:bg-neutral-900/20 border-border/40 hover:border-[#E72D87]/20"
+                ? "bg-pink-800/5 dark:bg-[#E72D87]/5 border-[#E72D87]/30"
+                : "bg-black/5 dark:bg-neutral-900/20 border-border/40 hover:border-[#E72D87]/20"
             }`}
           >
             <button

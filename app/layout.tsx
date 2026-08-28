@@ -5,6 +5,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -35,9 +36,9 @@ export default function RootLayout({
             <div className="fixed inset-0 pointer-events-none z-0">
               <div className="absolute inset-0 opacity-[0.07] dark:opacity-[0.15] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem]" />
               
-              <div className="absolute top-1/3 right-1/2 w-[50%] h-[50%] dark:bg-[#E72D87]/20 bg-[#E72D87]/20 blur-[150px] opacity-100 dark:opacity-0 transition-opacity duration-500" />
+              <div className="absolute top-1/3 right-1/2 w-[50%] h-[50%] dark:bg-[#E72D87]/20 bg-[#E72D87]/20 blur-[150px] opacity-10 dark:opacity-0 transition-opacity duration-500" />
               
-              <div className="absolute top-1/3 right-1/5 w-[50%] h-[50%] dark:bg-[#E72D87]/30 bg-[#E72D87]/20 blur-[150px] opacity-100 dark:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-1/3 right-1/5 w-[50%] h-[50%] dark:bg-[#E72D87]/30 bg-[#E72D87]/20 blur-[150px] opacity-70 dark:opacity-100 transition-opacity duration-500" />
             </div>
 
             {/* ─── SITE CONTENT ─── */}
@@ -45,6 +46,7 @@ export default function RootLayout({
               <Navbar />
               <main className="grow">
                 {children}
+                <ScrollToTopButton />
               </main>
               <Footer />
             </div>
