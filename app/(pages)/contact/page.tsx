@@ -52,7 +52,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="text-foreground min-h-screen relative font-sans pt-28 pb-20">
+    <main className="text-foreground min-h-screen relative pt-15 lg:pt-28 pb-20">
       <div
         className="absolute inset-0 opacity-[0.05] dark:opacity-[0.12] pointer-events-none"
         style={{
@@ -109,7 +109,7 @@ export default function ContactPage() {
                     <Mail className="w-4 h-4 text-[#E72D87]" />
                   </div>
                   <div>
-                    <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-mono">
+                    <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
                       Digital Route
                     </p>
                     <Link
@@ -126,7 +126,7 @@ export default function ContactPage() {
                     <Phone className="w-4 h-4 text-[#E72D87]" />
                   </div>
                   <div>
-                    <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-mono">
+                    <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
                       Direct Line
                     </p>
                     <Link
@@ -143,7 +143,7 @@ export default function ContactPage() {
                     <MapPin className="w-4 h-4 text-[#E72D87]" />
                   </div>
                   <div>
-                    <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-mono">
+                    <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
                       Physical Node
                     </p>
                     <p className="text-sm text-foreground/90">
@@ -174,14 +174,14 @@ export default function ContactPage() {
             </div>
 
             <div className="border border-border/40 p-6 rounded-[2rem] space-y-4 shadow-md bg-white/40 dark:bg-black/20">
-              <h3 className="text-xs font-mono uppercase text-muted-foreground tracking-wider">
+              <h3 className="text-xs uppercase text-muted-foreground tracking-wider">
                 Execution Framework
               </h3>
               <div className="space-y-3">
                 <details className="group border-b border-border/40 pb-2 cursor-pointer select-none">
                   <summary className="text-xs font-medium hover:text-[#E72D87] transition-colors list-none flex justify-between items-center">
                     What is the onboarding timeline?
-                    <span className="text-[10px] text-[#E72D87] font-mono group-open:rotate-45 transition-transform">
+                    <span className="text-[10px] text-[#E72D87] group-open:rotate-45 transition-transform">
                       +
                     </span>
                   </summary>
@@ -194,7 +194,7 @@ export default function ContactPage() {
                 <details className="group border-b border-border/40 pb-2 cursor-pointer select-none">
                   <summary className="text-xs font-medium hover:text-[#E72D87] transition-colors list-none flex justify-between items-center">
                     Do you provide active ad-account recovery?
-                    <span className="text-[10px] text-[#E72D87] font-mono group-open:rotate-45 transition-transform">
+                    <span className="text-[10px] text-[#E72D87] group-open:rotate-45 transition-transform">
                       +
                     </span>
                   </summary>
@@ -235,7 +235,7 @@ export default function ContactPage() {
 
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="text-xs font-mono uppercase text-[#E72D87] tracking-wider pt-4 hover:underline cursor-pointer"
+                  className="text-xs uppercase text-[#E72D87] tracking-wider pt-4 hover:underline cursor-pointer"
                 >
                   Send Another Message
                 </button>
@@ -244,7 +244,7 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono uppercase text-muted-foreground tracking-wider block">
+                    <label className="text-[10px] uppercase text-muted-foreground tracking-wider block">
                       Full Name
                     </label>
                     <input
@@ -254,13 +254,13 @@ export default function ContactPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
                       }
-                      placeholder="e.g., Alex Mercer"
+                      placeholder="Alex Mercer"
                       className="w-full h-12 px-4 rounded-xl bg-neutral-100 dark:bg-neutral-900/50 border border-border/60 focus:border-[#E72D87]/50 focus:outline-none transition-colors text-xs font-light"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono uppercase text-muted-foreground tracking-wider block">
+                    <label className="text-[10px] uppercase text-muted-foreground tracking-wider block">
                       Email Address
                     </label>
                     <input
@@ -278,7 +278,7 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono uppercase text-muted-foreground tracking-wider block">
+                    <label className="text-[10px] uppercase text-muted-foreground tracking-wider block">
                       Company / Brand Name
                     </label>
                     <input
@@ -287,13 +287,13 @@ export default function ContactPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, company: e.target.value })
                       }
-                      placeholder="e.g., Stealth Corp (Optional)"
+                      placeholder="Stealth Corp (Optional)"
                       className="w-full h-12 px-4 rounded-xl bg-neutral-100 dark:bg-neutral-900/50 border border-border/60 focus:border-[#E72D87]/50 focus:outline-none transition-colors text-xs font-light"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono uppercase text-muted-foreground tracking-wider block">
+                    <label className="text-[10px] uppercase text-muted-foreground tracking-wider block">
                       How can we help you?
                     </label>
                     <select
@@ -332,7 +332,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-mono uppercase text-muted-foreground tracking-wider block">
+                  <label className="text-[10px] uppercase text-muted-foreground tracking-wider block">
                     Project Details & Message
                   </label>
                   <textarea

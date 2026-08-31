@@ -81,11 +81,7 @@ const itemVariants: Variants = {
 
 export default function AgencyPlatformHero() {
   return (
-    <section className="relative w-full min-h-[92vh] flex flex-col justify-between pt-28 pb-12 overflow-hidden bg-white/10 dark:bg-[#060204]/40">
-      {/* GRID BACKGROUND & AMBIENT GLOW */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#e72d870a_1px,transparent_1px),linear-gradient(to_bottom,#e72d870a_1px,transparent_1px)] bg-size-[3.5rem_3.5rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_10%,#000_70%,transparent_100%)]" />
-      <div className="pointer-events-none absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-162.5 h-80 bg-[#E72D87]/15 rounded-full blur-[140px]" />
-
+    <section className="relative w-full min-h-[92vh] flex flex-col justify-between pt-15 lg:pt-28 pb-12 overflow-hidden">
       <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10 w-full px-4 md:px-6 my-auto">
         {/* LEFT: COPY & ACTIONS */}
         <motion.div
@@ -145,7 +141,7 @@ export default function AgencyPlatformHero() {
             variants={itemVariants}
             className="flex flex-wrap items-center gap-4 pt-2"
           >
-            <Link href="https://t.me/" target="_blank" rel="noreferrer">
+            <Link href="/contact">
               <Button
                 variant="outline"
                 className="h-12 cursor-pointer px-5 rounded-xl border border-[#E72D87]/30 bg-white/30 dark:bg-[#16060F]/40 text-neutral-900 dark:text-[#FCEFF5] hover:bg-pink-100/50 dark:hover:bg-white/5 text-xs font-semibold gap-2 transition-all"
@@ -160,7 +156,7 @@ export default function AgencyPlatformHero() {
                 className="h-12 cursor-pointer px-5 rounded-xl border border-[#E72D87]/30 bg-white/30 dark:bg-[#16060F]/40 text-neutral-900 dark:text-[#FCEFF5] hover:bg-pink-100/50 dark:hover:bg-white/5 text-xs font-semibold gap-2 transition-all"
               >
                 <Send className="w-3.5 h-3.5 text-[#E72D87]" />
-                Telegram Support
+                Chat with us
               </Button>
             </Link>
           </motion.div>
@@ -238,7 +234,7 @@ export default function AgencyPlatformHero() {
                 >
                   <div className="flex items-center justify-between mb-1.5">
                     <m.icon className="w-4 h-4 text-[#E72D87]" />
-                    <span className="text-[9px] font-mono text-[#E72D87] bg-[#E72D87]/10 px-1.5 py-0.5 rounded-md font-semibold uppercase">
+                    <span className="text-[9px] text-[#E72D87] bg-[#E72D87]/10 px-1.5 py-0.5 rounded-md font-semibold uppercase">
                       Live
                     </span>
                   </div>

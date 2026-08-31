@@ -15,6 +15,7 @@ import {
 import Image from "next/image";
 import { AccordionBasic } from "../../../../components/Accordions";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const FacebookPage = () => {
   const badges = [
@@ -104,7 +105,8 @@ const FacebookPage = () => {
       badge: "Most Popular",
       price: "$699",
       period: "/ month",
-      color: "border-fuchsia-500/50 bg-fuchsia-500/10 shadow-lg shadow-fuchsia-500/20",
+      color:
+        "border-fuchsia-500/50 bg-fuchsia-500/10 shadow-lg shadow-fuchsia-500/20",
       accent: "text-fuchsia-400",
       btnColor: "bg-fuchsia-500 hover:bg-fuchsia-400 text-white",
       features: [
@@ -134,7 +136,7 @@ const FacebookPage = () => {
   ];
 
   return (
-    <div className="min-h-screen py-30">
+    <div className="min-h-screen py-15 lg:py-30">
       {/* Hero Section */}
       <section className="relative">
         <div className="2xl:max-w-7xl lg:max-w-5xl md:max-w-lg max-w-sm mx-auto grid lg:grid-cols-12 gap-12 items-center">
@@ -144,12 +146,12 @@ const FacebookPage = () => {
               Accounts
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.15]">
+            <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.15]">
               Scale Aggressively With Zero{" "}
               <span className="bg-linear-to-r from-pink-600 via-pink-400 to-pink-200 bg-clip-text text-transparent">
                 Ad Account Limits
               </span>
-            </h1>
+            </h2>
 
             <p className="text-lg dark:text-slate-400 text-slate-600 max-w-xl leading-relaxed">
               Stop worrying about random Facebook ad bans. Unlock unlimited
@@ -157,19 +159,23 @@ const FacebookPage = () => {
               guarantees.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Button
-                variant={"digest"}
-                className="font-semibold flex items-center justify-center"
-              >
-                <Send className="w-3.5 h-3.5" /> Chat with us
-              </Button>
-              <Button
-                variant={"outline"}
-                className="px-7 py-3.5 rounded-xl border dark:border-slate-700 dark:hover:border-slate-600 dark:bg-slate-900/60 font-semibold dark:text-slate-200 transition-all flex items-center justify-center gap-2"
-              >
-                See Pricing <ArrowRight className="w-3.5 h-3.5" />
-              </Button>
+            <div className="flex gap-4 pt-2">
+              <Link href="https://t.me/" target="_blank" rel="noreferrer">
+                <Button
+                  variant={"digest"}
+                  className="font-semibold flex items-center justify-center"
+                >
+                  <Send className="w-3.5 h-3.5" /> Chat with us
+                </Button>
+              </Link>
+              <Link href="#pricing">
+                <Button
+                  variant={"outline"}
+                  className="px-7 py-3.5 rounded-xl border dark:border-slate-700 dark:hover:border-slate-600 dark:bg-slate-900/60 font-semibold dark:text-slate-200 transition-all flex items-center justify-center gap-2"
+                >
+                  See Pricing <ArrowRight className="w-3.5 h-3.5" />
+                </Button>
+              </Link>
             </div>
 
             <div className="flex items-center gap-6 pt-4 text-xs dark:text-slate-400 text-slate-600">
@@ -194,16 +200,14 @@ const FacebookPage = () => {
             {/* 1. Header (Facebook Logo & Post Info) */}
             <div className="p-5 pb-4 space-y-4">
               {/* Facebook Logo */}
-              <h2 className="text-xl font-bold tracking-tighter">
-                facebook
-              </h2>
+              <h2 className="text-xl font-bold tracking-tighter">facebook</h2>
 
               {/* Profile Row */}
               <div className="flex items-center gap-3">
                 {/* Digest Media Avatar */}
                 <div className="w-12 h-12 rounded-full bg-linear-to-br from-pink-950 to-slate-900 border border-pink-800/40 flex items-center justify-center p-2.5 overflow-hidden shrink-0 shadow-inner">
                   <Image
-                    src="/logo.webp" 
+                    src="/logo.webp"
                     alt="Digest Media Logo"
                     width={50}
                     height={40}
@@ -278,8 +282,8 @@ const FacebookPage = () => {
                 {/* Reactions */}
                 <div className="flex items-center gap-1.5">
                   <div className="flex space-x-1">
-                    <ThumbsUp className="w-4 h-4 rounded-full bg-blue-500 fill-white text-blue-500"/>
-                    <Heart className="w-4 h-4 rounded-full bg-red-500 fill-white text-red-500"/>
+                    <ThumbsUp className="w-4 h-4 rounded-full bg-blue-500 fill-white text-blue-500" />
+                    <Heart className="w-4 h-4 rounded-full bg-red-500 fill-white text-red-500" />
                   </div>
                   <span>100</span>
                 </div>
@@ -297,10 +301,7 @@ const FacebookPage = () => {
       </section>
 
       {/* Grid of Key Features */}
-      <section
-        id="features"
-        className="py-30"
-      >
+      <section id="features" className="py-30">
         <div className="2xl:max-w-7xl lg:max-w-5xl md:max-w-lg max-w-sm mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-bold mb-4">
@@ -323,9 +324,7 @@ const FacebookPage = () => {
                   <div className="w-10 h-10 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center mb-4">
                     <IconComponent className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">
-                    {f.title}
-                  </h3>
+                  <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
                   <p className="text-sm dark:text-slate-400 text-slate-600 leading-relaxed">
                     {f.desc}
                   </p>
@@ -337,10 +336,7 @@ const FacebookPage = () => {
       </section>
 
       {/* Comparison Table Section */}
-      <section
-        id="comparison"
-        className="py-20"
-      >
+      <section id="comparison" className="py-15 lg:py-20">
         <div className="2xl:max-w-7xl lg:max-w-5xl md:max-w-lg max-w-sm mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-3">
@@ -366,10 +362,11 @@ const FacebookPage = () => {
               </thead>
               <tbody className="divide-y dark:divide-gray-800/80 divide-gray-400/90">
                 {comparisonRows.map((row, i) => (
-                  <tr key={i} className="dark:hover:bg-gray-800/20 hover:bg-pink-50">
-                    <td className="p-4 sm:p-5 font-medium">
-                      {row.feature}
-                    </td>
+                  <tr
+                    key={i}
+                    className="dark:hover:bg-gray-800/20 hover:bg-pink-50"
+                  >
+                    <td className="p-4 sm:p-5 font-medium">{row.feature}</td>
                     <td className="p-4 sm:p-5 font-semibold bg-pink-500/10 flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0" />{" "}
                       {row.agency}
@@ -412,9 +409,7 @@ const FacebookPage = () => {
                   >
                     {tier.badge}
                   </span>
-                  <h3 className="text-xl font-bold mt-1 mb-4">
-                    {tier.name}
-                  </h3>
+                  <h3 className="text-xl font-bold mt-1 mb-4">{tier.name}</h3>
                   <div className="flex items-baseline gap-1 mb-6">
                     <span className="text-4xl font-extrabold">
                       {tier.price}

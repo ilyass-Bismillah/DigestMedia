@@ -13,8 +13,9 @@ import {
   Code2,
   ShieldCheck,
   Sparkles,
-  MoveUpRight
+  MoveUpRight,
 } from "lucide-react";
+import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 import SectionBadge from "@/components/Badge";
 import { Button } from "@/components/ui/button";
@@ -67,11 +68,11 @@ export default function AboutPage() {
   });
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
   return (
-    <main className="min-h-screen mt-15">
+    <main className="min-h-screen">
       {/* 1. HERO: MASSIVE TYPE */}
       <section className="relative h-[80vh] flex flex-col items-center justify-center text-center overflow-hidden space-y-8">
-        <div className="absolute inset-0 bg-neutral-900/80 z-0">
-          <div className="w-full h-full bg-[url('/digest.webp')] bg-cover bg-center mix-blend-overlay opacity-50" />
+        <div className="absolute inset-0 z-0">
+          <div className="w-full h-full bg-[url('/digest.webp')] bg-cover bg-center opacity-40" />
         </div>
         <SectionBadge text="About Us" />
         <motion.div
@@ -81,7 +82,10 @@ export default function AboutPage() {
           className="z-10 text-white md:px-6"
         >
           <h1 className="md:text-7xl text-5xl font-bold tracking-tighter mb-8 leading-[0.9]">
-            Digest <span className="text-[#E72D87] font-serif italic font-light">Media</span>
+            Digest{" "}
+            <span className="text-[#E72D87] font-serif italic font-light">
+              Media
+            </span>
           </h1>
           <p className="md:text-xl text-lg italic font-serif">
             Architecting digital ecosystems for high-performance brands.
@@ -109,7 +113,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <motion.section initial={{ opacity: 0, y: 80 }} whileInView={{ opacity: 1, y:0 }} transition={{ duration: 1.3, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto py-24 relative">
+      <motion.section
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.3, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto py-24 relative"
+      >
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
@@ -152,7 +162,7 @@ export default function AboutPage() {
               <Link href="/services">
                 <Button
                   variant={"link"}
-                  className="text-xs font-mono font-bold uppercase tracking-widest text-[#E72D87] flex items-center gap-2 group-hover:translate-x-1 transition-transform duration-300 cursor-pointer"
+                  className="text-xs font-bold uppercase tracking-widest text-[#E72D87] flex items-center gap-2 group-hover:translate-x-1 transition-transform duration-300 cursor-pointer"
                 >
                   Explore Service <ArrowRight size={14} />
                 </Button>
@@ -162,18 +172,20 @@ export default function AboutPage() {
         </div>
       </motion.section>
 
-      <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y:0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} ref={targetRef} className="relative h-[300vh]">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+        ref={targetRef}
+        className="relative h-[300vh]"
+      >
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
           <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto w-full">
             {/* Header */}
             <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E72D87]/10 border border-[#E72D87]/20 backdrop-blur-md mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#E72D87] animate-pulse" />
-                  <span className="text-[10px] font-mono font-semibold tracking-wider text-[#E72D87] uppercase">
-                    Our Core Values
-                  </span>
-                </div>
+              <div className="space-y-3">
+                <SectionBadge text="Our Core Values" />
                 <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-foreground">
                   Built For{" "}
                   <span className="font-serif italic font-light text-[#E72D87] lowercase">
@@ -198,7 +210,7 @@ export default function AboutPage() {
                     <div className="absolute inset-0 bg-linear-to-br from-[#E72D87]/5 to-transparent rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                     <div className="relative z-10 flex items-center justify-between">
-                      <span className="text-xs font-mono font-bold px-3.5 py-1 rounded-full bg-neutral-200/60 dark:bg-white/5 text-neutral-600 dark:text-neutral-400 group-hover:text-[#E72D87] group-hover:bg-[#E72D87]/10 transition-colors duration-300">
+                      <span className="text-xs font-bold px-3.5 py-1 rounded-full bg-neutral-200/60 dark:bg-white/5 text-neutral-600 dark:text-neutral-400 group-hover:text-[#E72D87] group-hover:bg-[#E72D87]/10 transition-colors duration-300">
                         {item.num}
                       </span>
                       <div className="w-8 h-8 rounded-full bg-neutral-200 dark:bg-white/5 flex items-center justify-center text-foreground group-hover:bg-[#E72D87] group-hover:text-white transition-all duration-300">
@@ -222,18 +234,18 @@ export default function AboutPage() {
         </div>
       </motion.section>
       {/* 5. THE SQUAD: HUMAN ELEMENT */}
-      <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y:0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className="py-24 px-6 relative overflow-hidden">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-24 px-6 relative overflow-hidden"
+      >
         <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto">
           {/* Section Badge & Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E72D87]/10 border border-[#E72D87]/20 backdrop-blur-md mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E72D87] animate-pulse" />
-              <span className="text-[10px] font-mono font-semibold tracking-wider text-[#E72D87] uppercase">
-                The Experts Behind The Growth
-              </span>
-            </div>
-
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-foreground mb-4">
+            <SectionBadge text="The Experts Behind The Growth" />
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-foreground my-4">
               Meet The{" "}
               <span className="font-serif italic font-light text-[#E72D87] lowercase">
                 Team
@@ -247,55 +259,90 @@ export default function AboutPage() {
           </div>
 
           {/* Team Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                name: "Alex",
-                role: "Founder & Lead",
-                bio: "Directing high-scale digital growth strategies and infrastructure.",
+                name: "Martin Kärdi",
+                role: "Senior Media Buying Lead",
+                bio: "Master of algorithmic budget pacing, creative testing frameworks, and high-velocity horizontal scaling on Meta & TikTok.",
+                image: "/2.webp",
+                linkedin: "https://linkedin.com",
+                twitter: "https://x.com",
               },
               {
-                name: "Sarah",
-                role: "Media Buying Lead",
-                bio: "Managing high-budget Meta and TikTok acquisition campaigns.",
+                name: "David Ryabchikov",
+                role: "Lead Infrastructure Engineer",
+                bio: "Focuses on Server-Side CAPI integrations, direct API data connectors, and automated billing limit management.",
+                image: "/2.webp",
+                linkedin: "https://linkedin.com",
               },
               {
-                name: "Mehdi",
-                role: "Performance Engineer",
-                bio: "Building fast, high-conversion web architectures and funnels.",
+                name: "Zack Ahmed",
+                role: "E-commerce Strategy Director",
+                bio: "Directs advertorial copywriting frameworks and native discovery funnels across Taboola, Outbrain, and Microsoft Advertising.",
+                image: "/2.webp",
+                linkedin: "https://linkedin.com",
+                twitter: "https://x.com",
               },
               {
-                name: "Rim",
-                role: "Creative Strategist",
-                bio: "Crafting visual storytelling and ad creative that converts.",
+                name: "Ehar Kala",
+                role: "Senior Account Manager",
+                bio: "Ensures frictionless daily operations, ad credit liquidity management, and instant asset replacement for VIP partners.",
+                image: "",
+                linkedin: "https://linkedin.com",
               },
             ].map((member, i) => (
               <div
                 key={i}
-                className="group relative p-8 rounded-[2rem] bg-neutral-100/60 dark:bg-neutral-900/40 border border-neutral-200/80 dark:border-white/5 backdrop-blur-xl transition-all duration-500 hover:border-[#E72D87]/40 hover:-translate-y-2 flex flex-col items-center text-center"
+                className="group relative p-6 rounded-3xl border backdrop-blur-md flex flex-col justify-between space-y-6 bg-neutral-100/70 dark:bg-neutral-900/60 transition-all duration-300 shadow-xl"
               >
-                {/* Subtle Glow on Hover */}
-                <div className="absolute inset-0 bg-linear-to-b from-[#E72D87]/5 to-transparent rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="space-y-5">
+                  {/* Avatar & Identifiers */}
+                  <div className="flex items-center gap-4">
+                    <div className="relative w-14 h-14 rounded-2xl overflow-hidden shrink-0 flex items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform duration-300 dark:text-pink-300 text-pink-800 dark:bg-pink-950/40 bg-pink-400/40">
+                      {member.name[0]}
+                    </div>
 
-                {/* Avatar with Gradient Border/Background */}
-                <div className="relative mb-6">
-                  <div className="absolute -inset-0.5 bg-linear-to-r from-[#E72D87] to-purple-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-500 blur-sm" />
-                  <div className="relative w-24 h-24 bg-neutral-200 dark:bg-neutral-800 rounded-full flex items-center justify-center font-bold text-xl text-foreground overflow-hidden border border-neutral-300 dark:border-white/10 group-hover:scale-105 transition-transform duration-500">
-                    {member.name[0]}
+                    <div className="space-y-0.5">
+                      <h4 className="text-base font-bold text-white group-hover:text-pink-300 transition-colors">
+                        {member.name}
+                      </h4>
+                      <p className="text-[11px] font-medium text-pink-400/90">
+                        {member.role}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                {/* Info */}
-                <div className="relative z-10 space-y-2 w-full">
-                  <h4 className="font-bold text-xl text-foreground tracking-tight">
-                    {member.name}
-                  </h4>
-                  <p className="text-[11px] font-mono font-bold text-[#E72D87] uppercase tracking-widest">
-                    {member.role}
-                  </p>
-                  <p className="text-neutral-500 dark:text-neutral-400 text-xs leading-relaxed font-light pt-2">
+                  {/* Bio */}
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-light">
                     {member.bio}
                   </p>
+                </div>
+                <div className="flex items-center gap-2 pt-3 border-t dark:border-pink-950/30 border-pink-400/30">
+                  {member.linkedin && (
+                    <motion.a
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.92 }}
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-lg dark:bg-pink-950/40 bg-pink-400/40 border dark:border-pink-900/30 border-pink-400/30 flex items-center justify-center dark:text-slate-400 text-slate-800 hover:text-pink-800 hover:border-pink-500 transition-colors"
+                    >
+                      <FaLinkedinIn className="w-3.5 h-3.5" />
+                    </motion.a>
+                  )}
+                  {member.twitter && (
+                    <motion.a
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.92 }}
+                      href={member.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-lg dark:bg-pink-950/40 bg-pink-400/40 border dark:border-pink-900/30 border-pink-400/30 flex items-center justify-center dark:text-slate-400 text-slate-800 hover:text-pink-800 hover:border-pink-500 transition-colors"
+                    >
+                      <FaXTwitter className="w-3.5 h-3.5" />
+                    </motion.a>
+                  )}
                 </div>
               </div>
             ))}
@@ -304,23 +351,22 @@ export default function AboutPage() {
       </motion.section>
 
       {/* 6. FINAL CTA */}
-      <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y:0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className="py-24 relative overflow-hidden">
-        {/* Background Ambient Glows */}
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[#E72D87]/15 blur-[120px] pointer-events-none rounded-full" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-600/10 blur-[120px] pointer-events-none rounded-full" />
-
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="py-15 lg:py-24 relative overflow-hidden"
+      >
         <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto relative z-10">
           {/* Main Box */}
-          <div className="relative p-10 md:p-16 rounded-[3rem] bg-neutral-100/70 dark:bg-neutral-900/60 border border-neutral-200 dark:border-white/10 backdrop-blur-2xl overflow-hidden shadow-2xl">
-            {/* Subtle Grid Pattern Overlay */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
-
+          <div className="relative px-5 py-10 md:p-15 rounded-[3rem] bg-neutral-100/70 dark:bg-neutral-900/60 border border-neutral-200 dark:border-white/10 backdrop-blur-2xl overflow-hidden shadow-2xl">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               {/* Left Content */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E72D87]/10 border border-[#E72D87]/20 backdrop-blur-md">
                   <Sparkles className="w-3.5 h-3.5 text-[#E72D87]" />
-                  <span className="text-[10px] font-mono font-semibold tracking-wider text-[#E72D87] uppercase">
+                  <span className="text-[10px] font-semibold tracking-wider text-[#E72D87] uppercase">
                     Ready For Takeoff
                   </span>
                 </div>
@@ -343,7 +389,7 @@ export default function AboutPage() {
               <div className="lg:col-span-5 flex flex-col justify-center items-start lg:items-end">
                 <div className="w-full p-8 rounded-3xl bg-white dark:bg-neutral-950/80 border border-neutral-200 dark:border-white/10 shadow-lg space-y-6">
                   <div className="space-y-2">
-                    <span className="text-xs font-mono text-[#E72D87] uppercase tracking-widest font-bold">
+                    <span className="text-xs text-[#E72D87] uppercase tracking-widest font-bold">
                       Priority Access
                     </span>
                     <p className="text-sm text-neutral-500 dark:text-neutral-400 font-light">

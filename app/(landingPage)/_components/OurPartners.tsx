@@ -67,7 +67,7 @@ export default function OurPartners() {
             <motion.div key={partner.name} variants={cardVariants}>
               <SpotlightCard
                 //  Overriding default p-8 with p-5! to give layout spacing for the images
-                className="w-full h-24 md:h-28 p-5! flex items-center justify-center dark:bg-pink-100/20 bg-pink-100/30  backdrop-blur-2xl rounded-2xl border border-border cursor-pointer transition-all duration-300 group overflow-hidden shadow-sm"
+                className="w-full h-24 md:h-28 p-5! flex items-center justify-center dark:bg-pink-200/30 bg-white/10  backdrop-blur-2xl rounded-2xl border border-border cursor-pointer transition-all duration-300 group overflow-hidden shadow-sm"
               >
                 {/* Safe layout layer that centers the image regardless of Spotlight's inner flex layout */}
                 <div className="w-full h-full flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105">
@@ -76,7 +76,7 @@ export default function OurPartners() {
                     alt={partner.name}
                     width={130}
                     height={45}
-                    className="object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+                    className="object-contain duration-300"
                     style={{ maxWidth: "100%", maxHeight: "100%" }}
                   />
                 </div>

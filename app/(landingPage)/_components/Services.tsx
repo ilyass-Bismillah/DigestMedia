@@ -13,6 +13,7 @@ import {
   ShoppingBag,
   ArrowUpRight,
   MoveUpRight,
+  Check,
 } from "lucide-react";
 import Link from "next/link";
 import { motion, useScroll, useTransform, MotionValue, useSpring } from "framer-motion";
@@ -159,7 +160,7 @@ export default function ServicesEcosystem() {
       transition={{ duration: 1, ease: "easeOut" }} 
       viewport={{ once: true, margin: "-100px" }}
       ref={containerRef}
-      className="w-full py-24 relative font-sans"
+      className="w-full py-24 relative"
     >
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header Section */}
@@ -171,7 +172,7 @@ export default function ServicesEcosystem() {
           <div className="space-y-4 relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E72D87]/10 border border-[#E72D87]/20">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E72D87] animate-pulse" />
-              <span className="text-[10px] font-mono font-semibold tracking-wider text-[#E72D87] uppercase">
+              <span className="text-[10px] font-semibold tracking-wider text-[#E72D87] uppercase">
                 High-Performance Infrastructure
               </span>
             </div>
@@ -191,12 +192,12 @@ export default function ServicesEcosystem() {
               by elite conversion optimization, custom web stacks, and
               unbreakable enterprise scaling structures.
             </p>
-            <div className="flex items-center gap-4 pt-1 text-[11px] font-mono text-foreground/70">
+            <div className="flex items-center gap-4 pt-1 text-[11px] text-foreground/70">
               <span className="flex items-center gap-1.5">
-                <span className="text-[#E72D87]">✓</span> 100% Data-Backed
+                <span className="text-[#E72D87]"><Check className="h-3.5 w-3.5" /></span> 100% Data-Backed
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="text-[#E72D87]">✓</span> Zero Bloat Code
+                <span className="text-[#E72D87]"><Check className="h-3.5 w-3.5" /></span> Zero Bloat Code
               </span>
             </div>
           </div>
@@ -220,7 +221,7 @@ export default function ServicesEcosystem() {
         {/* Footer CTA */}
         <div className="mt-10 flex items-center justify-center">
           <Link
-            href="/contact"
+            href="/services"
             className="flex items-center justify-center space-x-3 group hover:scale-95 transition-all transform ease-out cursor-pointer max-w-64 mx-auto md:mx-0"
           >
             <Button variant={"digest"} className="px-10 py-7 overflow-hidden">
@@ -294,7 +295,7 @@ function Card({ service, index, totalCards, globalProgress }: CardProps) {
       {/* Top Meta Details Row */}
       <div className="flex justify-between items-start w-full relative">
         <div className="flex items-center gap-4">
-          <span className="text-xs font-mono font-medium text-neutral-400 dark:text-zinc-600">
+          <span className="text-xs font-medium text-neutral-400 dark:text-zinc-600">
             [ NODE_{service.num} ]
           </span>
           <div className="text-[#E72D87] dark:text-pink-400">
@@ -329,7 +330,7 @@ function Card({ service, index, totalCards, globalProgress }: CardProps) {
             {service.features.map((feature, i) => (
               <span
                 key={i}
-                className="text-[10px] font-mono tracking-wider uppercase px-2.5 py-1 border border-neutral-200 dark:border-zinc-800 bg-stone-50 dark:bg-zinc-900 text-neutral-500 dark:text-zinc-400 rounded-md"
+                className="text-[10px] tracking-wider uppercase px-2.5 py-1 border border-neutral-200 dark:border-zinc-800 bg-stone-50 dark:bg-zinc-900 text-neutral-500 dark:text-zinc-400 rounded-md"
               >
                 {feature}
               </span>
@@ -339,7 +340,7 @@ function Card({ service, index, totalCards, globalProgress }: CardProps) {
       </div>
 
       {/* System Footer Tag */}
-      <div className="pt-6 border-t border-neutral-200 dark:border-zinc-800/80 flex justify-between items-center text-[10px] font-mono text-neutral-400 dark:text-zinc-600 mt-auto relative">
+      <div className="pt-6 border-t border-neutral-200 dark:border-zinc-800/80 flex justify-between items-center text-[10px] text-neutral-400 dark:text-zinc-600 mt-auto relative">
         <span className="tracking-wide">SYS_MATRIX // CORE_ACTIVE</span>
         <span>REF_V2.6_DEPLOYED</span>
       </div>

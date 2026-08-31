@@ -121,7 +121,7 @@ export default function ChooseUs() {
                     <AvatarFallback>ML</AvatarFallback>
                   </Avatar>
                 </AvatarGroup>
-                <span className="text-sm">Meet The Masters</span>
+                <span className="text-sm">Meet The Team</span>
               </Button>
             </Link>
 
@@ -152,13 +152,13 @@ export default function ChooseUs() {
               >
                 
                 {/* Huge Background Typography Mask */}
-                <span className="absolute right-0 bottom-4 text-[7rem] md:text-[11rem] font-black leading-none text-neutral-100/50 dark:text-zinc-900/40 select-none pointer-events-none font-sans transition-colors duration-500 group-hover:text-[#E72D87]/5 z-0">
+                <span className="absolute right-0 bottom-4 text-[7rem] md:text-[11rem] font-black leading-none text-neutral-100/50 dark:text-zinc-900/40 select-none pointer-events-none transition-colors duration-500 group-hover:text-[#E72D87]/5 z-0">
                   {item.num}
                 </span>
 
                 {/* Left Block inside Row: Info Meta Stack */}
                 <div className="space-y-4 max-w-xl relative z-10 flex-1">
-                  <span className="text-xs font-mono text-[#E72D87] opacity-60 block">
+                  <span className="text-xs text-[#E72D87] opacity-60 block">
                     DIGEST INFRASTRUCTURE {item.num}
                   </span>
                   <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground transition-colors duration-300">

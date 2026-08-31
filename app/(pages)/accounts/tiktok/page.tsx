@@ -15,6 +15,7 @@ import Image from "next/image";
 import { AccordionBasic } from "../../../../components/Accordions";
 import { Button } from "@/components/ui/button";
 import { FaTiktok } from "react-icons/fa6";
+import Link from "next/link"
 
 const TikTokPage = () => {
   const badges = [
@@ -138,7 +139,7 @@ const TikTokPage = () => {
   ];
 
   return (
-    <div className="min-h-screen py-30">
+    <div className="min-h-screen py-15 lg:py-30">
       {/* Hero Section */}
       <section className="relative">
         <div className="2xl:max-w-7xl lg:max-w-5xl md:max-w-lg max-w-sm mx-auto grid lg:grid-cols-12 gap-12 items-center">
@@ -158,19 +159,23 @@ const TikTokPage = () => {
               Target Tier-1 GEOs (USA, UK, CA, EU) worldwide without region locks. Enjoy unlimited daily budgets, 0% top-up fees, and instant 1-hour account replacements.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Button
-                variant={"digest"}
-                className="font-semibold flex items-center justify-center"
-              >
-                <Send className="w-3.5 h-3.5" /> Chat with us
-              </Button>
-              <Button
-                variant={"outline"}
-                className="px-7 py-3.5 rounded-xl border dark:border-slate-700 dark:hover:border-slate-600 dark:bg-slate-900/60 font-semibold dark:text-slate-200 transition-all flex items-center justify-center gap-2"
-              >
-                See Pricing <ArrowRight className="w-3.5 h-3.5" />
-              </Button>
+            <div className="flex gap-4 pt-2">
+              <Link href="https://t.me/" target="_blank" rel="noreferrer">
+                <Button
+                  variant={"digest"}
+                  className="font-semibold flex items-center justify-center"
+                >
+                  <Send className="w-3.5 h-3.5" /> Chat with us
+                </Button>
+              </Link>
+              <Link href="#pricing">
+                <Button
+                  variant={"outline"}
+                  className="px-7 py-3.5 rounded-xl border dark:border-slate-700 dark:hover:border-slate-600 dark:bg-slate-900/60 font-semibold dark:text-slate-200 transition-all flex items-center justify-center gap-2"
+                >
+                  See Pricing <ArrowRight className="w-3.5 h-3.5" />
+                </Button>
+              </Link>
             </div>
 
             <div className="flex items-center gap-6 pt-4 text-xs dark:text-slate-400 text-slate-600">
@@ -346,7 +351,7 @@ const TikTokPage = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/80 divide-gray-400/90">
+              <tbody className="divide-y dark:divide-slate-800/80 divide-gray-400/90">
                 {comparisonRows.map((row, i) => (
                   <tr key={i} className="dark:hover:bg-slate-800/20 hover:bg-pink-50">
                     <td className="p-4 sm:p-5 font-medium">

@@ -17,12 +17,12 @@ export default async function BlogPage({ searchParams }: Props) {
 
   return (
     <div className="min-h-screen">
-      <div className="relative z-10 2xl:max-w-7xl lg:max-w-5xl md:max-w-lg max-w-sm mx-auto pt-32 pb-20 space-y-24">
+      <div className="relative z-10 2xl:max-w-7xl lg:max-w-5xl md:max-w-lg max-w-sm mx-auto pt-15 lg:pt-32 pb-20 space-y-24">
         {/* 1. Page Title */}
         <div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight mb-2">
+          <h2 className="text-4xl lg:text-6xl font-extrabold tracking-tight mb-2">
             Blog
-          </h1>
+          </h2>
         </div>
 
         {/* 2. Featured Post Card (Top Hero) */}
@@ -34,7 +34,7 @@ export default async function BlogPage({ searchParams }: Props) {
                 href={`/blog/${featuredPost.slug}`}
                 className="lg:col-span-6 aspect-16/10 w-full rounded-2xl bg-linear-to-br from-pink-800/30 via-pink-800/10 to-pink-800/5 border border-pink-800/40 p-6 flex flex-col justify-between relative overflow-hidden shadow-inner group-hover:scale-[1.01] transition-transform duration-500"
               >
-                <span className="self-start bg-pink-600/30 text-pink-300 border border-pink-500/40 px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wider z-40">
+                <span className="self-start bg-pink-600/30 text-pink-200 border border-pink-500/40 px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wider z-40">
                   {featuredPost.category}
                 </span>
                 <Image
@@ -97,7 +97,7 @@ export default async function BlogPage({ searchParams }: Props) {
                   {/* Visual Frame */}
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="w-full aspect-16/10 rounded-2xl bg-linear-to-br dark:from-[#160a2b] from-pink-500/50 dark:via-[#0e051c] via-pink-500/30 dark:to-[#07020e] to-pink-500/20 border dark:border-pink-900/30 p-4 flex flex-col justify-between relative overflow-hidden"
+                    className="w-full aspect-16/10 rounded-2xl bg-linear-to-br dark:from-pink-800/50 from-pink-500/50 dark:via-pink-800/30 via-pink-500/30 dark:to-pink-800/20 to-pink-500/20 border dark:border-pink-900/30 p-4 flex flex-col justify-between relative overflow-hidden"
                   >
                     <span className="self-end bg-pink-600/70 text-pink-200 border border-pink-500/30 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider z-40">
                       {post.category}
@@ -109,7 +109,6 @@ export default async function BlogPage({ searchParams }: Props) {
                         width={600}
                         height={400}
                         className="w-full h-full z-10 object-cover absolute top-0 left-0 right-0 bottom-0"
-
                       />
                     )}
                     <div className="space-y-1.5 opacity-30">
@@ -178,11 +177,11 @@ export default async function BlogPage({ searchParams }: Props) {
             </p>
           </div>
 
-          <form className="flex w-full md:w-auto gap-2">
+          <form className="flex flex-col lg:flex-row w-full md:w-auto gap-2">
             <input
               type="email"
               placeholder="Enter your email"
-              className="px-4 py-2.5 rounded-xl dark:bg-slate-900/80 bg-white/10 border dark:border-slate-800 border-slate-300 text-xs focus:outline-none focus:border-pink-500 w-full sm:w-64"
+              className="px-4 py-5 rounded-xl dark:bg-slate-900/80 bg-white/10 border dark:border-slate-800 border-slate-300 text-xs focus:outline-none focus:border-pink-500 w-full"
             />
             <Button
               variant={"digest"}

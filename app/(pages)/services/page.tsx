@@ -244,7 +244,7 @@ export default function ServicesPage() {
     useState<keyof typeof servicesData>("paid-advertising");
 
   return (
-    <main className="text-foreground min-h-screen relative overflow-hidden font-sans pt-28 pb-20">
+    <main className="text-foreground min-h-screen relative overflow-hidden pt-28 pb-20">
       <div
         className="absolute inset-0 opacity-[0.05] dark:opacity-[0.12] pointer-events-none"
         style={{
@@ -266,8 +266,6 @@ export default function ServicesPage() {
         }}
       />
 
-      <div className="absolute top-10 right-1/4 w-72 h-72 md:w-112.5 md:h-112.5 bg-[#E72D87]/5 blur-[100px] md:blur-[150px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-20 left-1/4 w-80 h-80 md:w-125 md:h-125 bg-pink-900/10 blur-[110px] md:blur-[160px] pointer-events-none rounded-full" />
       <div className="w-full 2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto relative z-10 space-y-12 md:space-y-16">
         <motion.section
           initial={{ opacity: 0, y: 80 }}
@@ -290,8 +288,8 @@ export default function ServicesPage() {
           </p>
         </motion.section>
 
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y:0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className="w-full flex justify-start md:justify-center overflow-x-auto scrollbar-thumb-pink-500 pb-2 -mx-5 px-4 md:mx-0 md:px-0">
-          <div className="flex space-x-2 p-1.5 bg-neutral-100 dark:bg-neutral-900/40 border border-border/60 rounded-full backdrop-blur-md whitespace-nowrap shrink-0">
+        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y:0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className="w-full flex flex-col md:flex-row md:justify-center pb-2 px-4">
+          <div className="flex flex-col lg:flex-row space-x-0 lg:space-x-3 p-2 bg-neutral-100 dark:bg-neutral-900/40 border border-border/60 backdrop-blur-md">
             {(
               Object.keys(servicesData) as Array<keyof typeof servicesData>
             ).map((tabKey) => {
@@ -313,7 +311,7 @@ export default function ServicesPage() {
                   {isActive && (
                     <motion.div
                       layoutId="servicesActiveTab"
-                      className="absolute inset-0 bg-[#E72D87] rounded-full shadow-[0_4px_15px_rgba(231,45,135,0.3)]"
+                      className="absolute inset-0 bg-[#E72D87] rounded-xl"
                       transition={{
                         type: "spring",
                         stiffness: 400,
@@ -370,8 +368,8 @@ export default function ServicesPage() {
                           ) : null}
                         </div>
 
-                        <span className="text-[10px] text-muted-foreground/30 font-mono">
-                          / 0{idx + 1}
+                        <span className="text-[10px] text-muted-foreground">
+                          0{idx + 1}
                         </span>
                       </div>
 
