@@ -79,14 +79,14 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
-          className="z-10 text-white md:px-6"
+          className="z-10 md:px-6"
         >
-          <h1 className="md:text-7xl text-5xl font-bold tracking-tighter mb-8 leading-[0.9]">
+          <h2 className="md:text-7xl text-5xl font-bold tracking-tighter mb-8 leading-[0.9]">
             Digest{" "}
             <span className="text-[#E72D87] font-serif italic font-light">
               Media
             </span>
-          </h1>
+          </h2>
           <p className="md:text-xl text-lg italic font-serif">
             Architecting digital ecosystems for high-performance brands.
           </p>
@@ -105,7 +105,7 @@ export default function AboutPage() {
               <h3 className="text-5xl font-bold text-[#E72D87] mb-2">
                 <Counter from={0} to={s.n} />+
               </h3>
-              <p className="text-xs font-bold uppercase tracking-widest text-neutral-400">
+              <p className="text-xs font-bold uppercase tracking-widest dark:text-neutral-400 text-neutral-800">
                 {s.l}
               </p>
             </div>
@@ -304,7 +304,7 @@ export default function AboutPage() {
                     </div>
 
                     <div className="space-y-0.5">
-                      <h4 className="text-base font-bold text-white group-hover:text-pink-300 transition-colors">
+                      <h4 className="text-base font-bold dark:group-hover:text-pink-300 group-hover:text-pink-600 transition-colors">
                         {member.name}
                       </h4>
                       <p className="text-[11px] font-medium text-pink-400/90">
@@ -314,7 +314,7 @@ export default function AboutPage() {
                   </div>
 
                   {/* Bio */}
-                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm dark:text-slate-400 text-slate-600 leading-relaxed font-light">
                     {member.bio}
                   </p>
                 </div>
