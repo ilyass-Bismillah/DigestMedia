@@ -16,6 +16,7 @@ import {
 import { FaMeta, FaSnapchat, FaTiktok, FaGoogle } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import SectionBadge from "@/components/Badge";
+import WebThreads from "@/components/WebThreads/WebThreads";
 
 const platforms = [
   { name: "Meta", icon: FaMeta, iconColor: "text-[#0064E0]" },
@@ -38,15 +39,15 @@ const metrics = [
 const clientAvatars = [
   {
     name: "Max S.",
-    img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80",
+    img: "/testimonial/avatar1.avif",
   },
   {
     name: "Oliver B.",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80",
+    img: "/testimonial/avatar4.avif",
   },
   {
     name: "Carl W.",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&auto=format&fit=crop&q=80",
+    img: "/testimonial/avatar3.avif",
   },
 ];
 
@@ -81,7 +82,25 @@ const itemVariants: Variants = {
 
 export default function AgencyPlatformHero() {
   return (
-    <section className="relative w-full min-h-[95vh] flex flex-col justify-between pt-15  pb-12 overflow-hidden">
+    <section className="relative w-full min-h-[94vh] flex flex-col justify-between pt-15 pb-12 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none opacity-40 dark:opacity-30 z-0">
+        <WebThreads
+          color1="#E72D87"
+          color2="#E72D87"
+          color3="#FFFFFF"
+          speed={0.25}
+          threadCount={5}
+          frequency={4.0}
+          spread={0.2}
+          position={0.5}
+          glow={0.03}
+          thickness={1.2}
+          brightness={0.8}
+          opacity={0.85}
+          mouseInteraction={true}
+          mouseStrength={0.35}
+        />
+      </div>
       <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10 w-full  my-auto">
         {/* LEFT: COPY & ACTIONS */}
         <motion.div
@@ -249,8 +268,20 @@ export default function AgencyPlatformHero() {
             </div>
           </motion.div>
           <div className="flex items-center justify-center pt-5 space-x-5">
-            <Image src="/users-love-us.svg" alt="googleRating" width={60} height={60} className="w-25" />
-            <Image src="/google-rating.svg" alt="googleRating" width={60} height={60} className="w-40" />
+            <Image
+              src="/users-love-us.svg"
+              alt="googleRating"
+              width={60}
+              height={60}
+              className="w-25"
+            />
+            <Image
+              src="/google-rating.svg"
+              alt="googleRating"
+              width={60}
+              height={60}
+              className="w-40"
+            />
           </div>
         </div>
       </div>
