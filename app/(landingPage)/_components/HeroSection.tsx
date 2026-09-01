@@ -81,8 +81,8 @@ const itemVariants: Variants = {
 
 export default function AgencyPlatformHero() {
   return (
-    <section className="relative w-full min-h-[92vh] flex flex-col justify-between pt-15 lg:pt-28 pb-12 overflow-hidden">
-      <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10 w-full px-4 md:px-6 my-auto">
+    <section className="relative w-full min-h-[95vh] flex flex-col justify-between pt-15  pb-12 overflow-hidden">
+      <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10 w-full  my-auto">
         {/* LEFT: COPY & ACTIONS */}
         <motion.div
           variants={containerVariants}

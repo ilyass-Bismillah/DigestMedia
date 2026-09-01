@@ -131,10 +131,10 @@ const TaboolaPage = () => {
   ];
 
   return (
-    <div className="min-h-screen py-15 lg:py-30">
+    <div className="min-h-screen py-15">
       {/* Hero Section */}
       <section className="relative">
-        <div className="2xl:max-w-7xl lg:max-w-5xl md:max-w-lg max-w-sm mx-auto grid lg:grid-cols-12 gap-12 items-center">
+        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-pink-500/30 bg-pink-500/10 text-pink-500 text-xs font-medium tracking-wide">
               <Sparkles className="w-3.5 h-3.5" /> Official Taboola Partner
@@ -204,7 +204,7 @@ const TaboolaPage = () => {
 
       {/* Grid of Key Features */}
       <section id="features" className="py-30">
-        <div className="2xl:max-w-7xl lg:max-w-5xl md:max-w-lg max-w-sm mx-auto">
+        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-bold mb-4">
               Built for Aggressive Native & Arbitrage Media Buyers
@@ -241,7 +241,7 @@ const TaboolaPage = () => {
 
       {/* Comparison Table Section */}
       <section id="comparison" className="py-20">
-        <div className="2xl:max-w-7xl lg:max-w-5xl md:max-w-lg max-w-sm mx-auto">
+        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-3">
               Taboola Agency Lines vs. Standard Self-Serve Accounts
@@ -291,7 +291,7 @@ const TaboolaPage = () => {
 
       {/* Pricing Cards */}
       <section id="pricing" className="py-20">
-        <div className="2xl:max-w-7xl lg:max-w-5xl md:max-w-lg max-w-sm mx-auto">
+        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto">
           <div className="text-center max-w-xl mx-auto mb-16">
             <h2 className="text-3xl font-bold mb-3">
               Transparent Scale Pricing

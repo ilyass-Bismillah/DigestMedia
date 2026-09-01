@@ -244,7 +244,7 @@ export default function ServicesPage() {
     useState<keyof typeof servicesData>("paid-advertising");
 
   return (
-    <main className="text-foreground min-h-screen relative overflow-hidden pt-28 pb-20">
+    <main className="text-foreground min-h-screen relative overflow-hidden py-15">
       <div
         className="absolute inset-0 opacity-[0.05] dark:opacity-[0.12] pointer-events-none"
         style={{

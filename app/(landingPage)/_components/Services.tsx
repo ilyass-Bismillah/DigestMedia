@@ -160,7 +160,7 @@ export default function ServicesEcosystem() {
       transition={{ duration: 1, ease: "easeOut" }} 
       viewport={{ once: true, margin: "-100px" }}
       ref={containerRef}
-      className="w-full py-24 relative"
+      className="w-full py-15 relative"
     >
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header Section */}

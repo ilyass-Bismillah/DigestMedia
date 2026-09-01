@@ -17,7 +17,7 @@ export default async function BlogPage({ searchParams }: Props) {
 
   return (
     <div className="min-h-screen">
-      <div className="relative z-10 2xl:max-w-7xl lg:max-w-5xl md:max-w-lg max-w-sm mx-auto pt-15 lg:pt-32 pb-20 space-y-24">
+      <div className="relative z-10 2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto py-15 space-y-24">
         {/* 1. Page Title */}
         <div>
           <h2 className="text-4xl lg:text-6xl font-extrabold tracking-tight mb-2">

@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: Props) {
   };
 
   return (
-    <div className="min-h-screen pb-32">
+    <div className="min-h-screen">
       {/* Google Structured Data Injection */}
       <section>
         <script
@@ -72,8 +72,8 @@ export default async function BlogPostPage({ params }: Props) {
       </section>
 
       {/* 1. Header Hero Banner */}
-      <header className="relative pt-16 lg:pt-32 pb-12">
-        <div className="2xl:max-w-7xl lg:max-w-5xl md:max-w-3xl max-w-xl mx-auto px-4 space-y-6">
+      <header className="relative p-15">
+        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto px-4 space-y-6">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 text-xs font-semibold text-pink-500 hover:text-pink-400 transition-colors"
@@ -104,11 +104,11 @@ export default async function BlogPostPage({ params }: Props) {
       </header>
 
       {/* 2. Main 3-Column Layout */}
-      <main className="2xl:max-w-7xl lg:max-w-5xl md:max-w-3xl max-w-xl mx-auto px-4 pt-6 relative z-10">
+      <main className="2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto px-4 pt-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Left Column: Context Sidebar */}
           <aside className="hidden lg:block lg:col-span-3 sticky top-28 space-y-6">
-            <div className="p-6 rounded-3xl border border-pink-950/40 dark:bg-[#0b0314]/80 bg-pink-800/10 backdrop-blur-md space-y-4 shadow-xl">
+            <div className="p-6 rounded-3xl border dark:border-pink-950/40 dark:bg-[#0b0314]/80 bg-white backdrop-blur-md space-y-4 shadow-xl">
               <span className="text-xs font-bold uppercase tracking-wider text-pink-800 dark:text-pink-300 flex items-center gap-2">
                 <Bookmark className="w-3.5 h-3.5" /> Topic Overview
               </span>
@@ -121,8 +121,8 @@ export default async function BlogPostPage({ params }: Props) {
               </p>
             </div>
 
-            <div className="p-6 rounded-3xl border border-pink-950/30 bg-pink-800/10 dark:bg-[#080212]/60 space-y-2 shadow-lg">
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 block">
+            <div className="p-6 rounded-3xl border dark:border-pink-950/30 bg-white dark:bg-[#080212]/60 space-y-2 shadow-lg">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-pink-800 dark:text-slate-400 block">
                 Digest Media Benchmark
               </span>
               <div className="text-3xl font-black text-black dark:text-white">
@@ -159,7 +159,7 @@ export default async function BlogPostPage({ params }: Props) {
 
               <div className="space-y-3 z-10">
                 <div className="h-1.5 w-20 bg-linear-to-r from-pink-400 to-pink-600 rounded-full" />
-                <h3 className="text-xl lg:text-2xl font-bold tracking-tight text-white leading-tight">
+                <h3 className="text-xl lg:text-2xl font-bold tracking-tight leading-tight">
                   {post.metadata.title}
                 </h3>
               </div>
@@ -185,7 +185,7 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Right Column: Sticky Agency Promo CTA */}
           <aside className="lg:col-span-3 sticky top-28 space-y-6">
-            <div className="p-6 rounded-3xl border border-pink-800/40 bg-linear-to-br from-pink-800/20 via-pink-900/10 to-[#0c0414] space-y-5 shadow-2xl backdrop-blur-md">
+            <div className="p-6 rounded-3xl border dark:border-pink-800/40 bg-white dark:bg-[#080212]/60 space-y-5 shadow-2xl backdrop-blur-md">
               <div className="w-12 h-12 rounded-2xl bg-pink-500/20 dark:text-pink-300 text-pink-800 flex items-center justify-center border border-pink-500/30">
                 <ShieldCheck className="w-6 h-6" />
               </div>
@@ -215,7 +215,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* 3. Related Articles Grid */}
-        <section className="mt-28 pt-16 border-t dark:border-pink-950/40 border-pink-900/10 space-y-8">
+        <section className="mt-28 border-t dark:border-pink-950/40 border-pink-900/10 space-y-8 py-15">
           <div className="flex items-center justify-between">
             <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
               Related Articles
@@ -232,11 +232,11 @@ export default async function BlogPostPage({ params }: Props) {
             {relatedPosts.map((rPost) => (
               <article
                 key={rPost.slug}
-                className="rounded-3xl border border-pink-950/40 dark:bg-pink-500/5 bg-pink-800/10 p-5 flex flex-col justify-between hover:border-pink-800/50 dark:hover:bg-black/30 hover:bg-pink-800/5 transition-all duration-300 group"
+                className="rounded-3xl border dark:border-pink-950/40 dark:bg-pink-500/5 bg-white p-5 flex flex-col justify-between dark:hover:border-pink-800/50 dark:hover:bg-black/30 transition-all duration-300 group shadow-md"
               >
                 <div className="space-y-4">
                   <Link href={`/blog/${rPost.slug}`} className="w-full aspect-video rounded-2xl bg-linear-to-br from-pink-800/30 via-pink-800/10 to-pink-800/5 border border-pink-900/30 p-4 flex items-end justify-start relative overflow-hidden">
-                    <span className="bg-pink-600/40 dark:text-pink-200 text-pink-800 border border-pink-500/30 px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider z-20 backdrop-blur-sm">
+                    <span className="bg-pink-600/40 text-pink-200  border border-pink-500/30 px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider z-20 backdrop-blur-sm">
                       {rPost.category}
                     </span>
                     {rPost.image && (

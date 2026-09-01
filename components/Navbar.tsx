@@ -128,7 +128,7 @@ export default function DigestLinearNavbar() {
 
   return (
     <nav className="z-50 w-full bg-white/20 dark:bg-[#060204]/30 backdrop-blur-xl border-b border-[#E72D87]/10 dark:border-[#E72D87]/15 transition-all duration-300">
-      <div className="relative w-full 2xl:max-w-7xl lg:max-w-5xl max-w-sm mx-auto flex items-center justify-between h-20">
+      <div className="relative w-full 2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto flex items-center justify-between h-20">
         {/* BRAND LOGO */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}

@@ -109,8 +109,8 @@ const cardVariants: Variants = {
 
 const Team = () => {
   return (
-    <div className="min-h-screen pb-24 overflow-x-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-32 space-y-24">
+    <div className="min-h-screen py-15 overflow-x-hidden">
+      <div className="relative z-10 2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto space-y-24">
         {/* 1. Hero Header Section */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
