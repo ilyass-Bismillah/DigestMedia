@@ -20,6 +20,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Digest Media",
   description: "Agence Digitale & Média",
+  icons: "/2.webp"
 };
 
 export default function RootLayout({

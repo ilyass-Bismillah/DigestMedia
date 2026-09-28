@@ -169,7 +169,7 @@ export default function AgencyPlatformHero() {
                 Contact Us
               </Button>
             </Link>
-            <Link href="https://t.me/" target="_blank" rel="noreferrer">
+            <Link href="https://t.me/@AdDigest_X1" target="_blank" rel="noreferrer">
               <Button
                 variant="outline"
                 className="h-12 cursor-pointer px-5 rounded-xl border border-[#E72D87]/30 bg-white/30 dark:bg-[#16060F]/40 text-neutral-900 dark:text-[#FCEFF5] hover:bg-pink-100/50 dark:hover:bg-white/5 text-xs font-semibold gap-2 transition-all"
