@@ -36,7 +36,7 @@ export default function ContactPage() {
         },
         body: JSON.stringify({
           ...formData,
-          turnstileToken, // Siftna l-token l-backend
+          turnstileToken, 
         }),
       });
 
@@ -55,7 +55,7 @@ export default function ContactPage() {
       } else {
         console.error(result.error);
         alert(result.error || "Error sending message. Please try again.");
-        turnstileRef.current?.reset(); // Reset l-captcha ila tra error
+        turnstileRef.current?.reset(); 
       }
     } catch (err) {
       console.error("Submission error:", err);
