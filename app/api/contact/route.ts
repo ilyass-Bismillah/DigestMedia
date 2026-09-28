@@ -5,15 +5,56 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    const { name, email, company, service, message } = await request.json();
+    const { name, email, company, service, message, turnstileToken } =
+      await request.json();
 
     if (!name || !email || !message) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
+
+    if (!turnstileToken) {
+      return NextResponse.json(
+        { error: "Security check required. Please verify captcha." },
+        { status: 400 }
+      );
+    }
+
+    // Verification Cloudflare Turnstile token
+    const verifyFormData = new FormData();
+    verifyFormData.append(
+      "secret",
+      process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY || ""
+    );
+    verifyFormData.append("response", turnstileToken);
+
+    const cfResponse = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        body: verifyFormData,
+      }
+    );
+
+    const cfData = await cfResponse.json();
+
+    if (!cfData.success) {
+      return NextResponse.json(
+        { error: "Security verification failed. Please try again." },
+        { status: 403 }
+      );
     }
 
     const data = await resend.emails.send({
-      from: "Digest Media <onboarding@resend.dev>", 
-      to: "ilyassbis@gmail.com", 
+      from: "Digest Media <contact@digest-media.ma>",
+      to: [
+        "contact@digest-media.ma",
+        "ussamaerraji@digest-media.ma",
+        "ilyassbis@gmail.com",
+      ],
+      replyTo: email, 
       subject: `New Lead: ${name} - ${service}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 12px;">
@@ -32,9 +73,9 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ success: true, data }, { status: 200 });
-
   } catch (error: unknown) {
-    const errorMessage = error instanceof Error ? error.message : "Internal Server Error";
+    const errorMessage =
+      error instanceof Error ? error.message : "Internal Server Error";
     return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }

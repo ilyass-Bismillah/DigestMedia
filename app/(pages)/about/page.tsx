@@ -15,7 +15,6 @@ import {
   Sparkles,
   MoveUpRight,
 } from "lucide-react";
-import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 import SectionBadge from "@/components/Badge";
 import { Button } from "@/components/ui/button";
@@ -230,122 +229,6 @@ export default function AboutPage() {
                 ))}
               </motion.div>
             </div>
-          </div>
-        </div>
-      </motion.section>
-      {/* 5. THE SQUAD: HUMAN ELEMENT */}
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="py-24 px-6 relative overflow-hidden"
-      >
-        <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto">
-          {/* Section Badge & Header */}
-          <div className="text-center mb-16">
-            <SectionBadge text="The Experts Behind The Growth" />
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-foreground my-4">
-              Meet The{" "}
-              <span className="font-serif italic font-light text-[#E72D87] lowercase">
-                Team
-              </span>
-            </h2>
-
-            <p className="text-neutral-500 dark:text-neutral-400 text-sm md:text-base max-w-xl mx-auto font-light">
-              A dedicated collective of media buyers, engineers, and strategists
-              engineering your digital dominance.
-            </p>
-          </div>
-
-          {/* Team Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                name: "Martin Kärdi",
-                role: "Senior Media Buying Lead",
-                bio: "Master of algorithmic budget pacing, creative testing frameworks, and high-velocity horizontal scaling on Meta & TikTok.",
-                image: "/2.webp",
-                linkedin: "https://linkedin.com",
-                twitter: "https://x.com",
-              },
-              {
-                name: "David Ryabchikov",
-                role: "Lead Infrastructure Engineer",
-                bio: "Focuses on Server-Side CAPI integrations, direct API data connectors, and automated billing limit management.",
-                image: "/2.webp",
-                linkedin: "https://linkedin.com",
-              },
-              {
-                name: "Zack Ahmed",
-                role: "E-commerce Strategy Director",
-                bio: "Directs advertorial copywriting frameworks and native discovery funnels across Taboola, Outbrain, and Microsoft Advertising.",
-                image: "/2.webp",
-                linkedin: "https://linkedin.com",
-                twitter: "https://x.com",
-              },
-              {
-                name: "Ehar Kala",
-                role: "Senior Account Manager",
-                bio: "Ensures frictionless daily operations, ad credit liquidity management, and instant asset replacement for VIP partners.",
-                image: "",
-                linkedin: "https://linkedin.com",
-              },
-            ].map((member, i) => (
-              <div
-                key={i}
-                className="group relative p-6 rounded-3xl border backdrop-blur-md flex flex-col justify-between space-y-6 bg-neutral-100/70 dark:bg-neutral-900/60 transition-all duration-300 shadow-xl"
-              >
-                <div className="space-y-5">
-                  {/* Avatar & Identifiers */}
-                  <div className="flex items-center gap-4">
-                    <div className="relative w-14 h-14 rounded-2xl overflow-hidden shrink-0 flex items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform duration-300 dark:text-pink-300 text-pink-800 dark:bg-pink-950/40 bg-pink-400/40">
-                      {member.name[0]}
-                    </div>
-
-                    <div className="space-y-0.5">
-                      <h4 className="text-base font-bold dark:group-hover:text-pink-300 group-hover:text-pink-600 transition-colors">
-                        {member.name}
-                      </h4>
-                      <p className="text-[11px] font-medium text-pink-400/90">
-                        {member.role}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Bio */}
-                  <p className="text-xs sm:text-sm dark:text-slate-400 text-slate-600 leading-relaxed font-light">
-                    {member.bio}
-                  </p>
-                </div>
-                <div className="flex items-center gap-2 pt-3 border-t dark:border-pink-950/30 border-pink-400/30">
-                  {member.linkedin && (
-                    <motion.a
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.92 }}
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-lg dark:bg-pink-950/40 bg-pink-400/40 border dark:border-pink-900/30 border-pink-400/30 flex items-center justify-center dark:text-slate-400 text-slate-800 hover:text-pink-800 hover:border-pink-500 transition-colors"
-                    >
-                      <FaLinkedinIn className="w-3.5 h-3.5" />
-                    </motion.a>
-                  )}
-                  {member.twitter && (
-                    <motion.a
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.92 }}
-                      href={member.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-lg dark:bg-pink-950/40 bg-pink-400/40 border dark:border-pink-900/30 border-pink-400/30 flex items-center justify-center dark:text-slate-400 text-slate-800 hover:text-pink-800 hover:border-pink-500 transition-colors"
-                    >
-                      <FaXTwitter className="w-3.5 h-3.5" />
-                    </motion.a>
-                  )}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </motion.section>

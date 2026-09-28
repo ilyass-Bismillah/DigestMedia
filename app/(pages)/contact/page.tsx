@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, ShieldCheck, Check, Zap } from "lucide-react";
 import Link from "next/link";
+import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -12,11 +13,19 @@ export default function ContactPage() {
     service: "paid-advertising",
     message: "",
   });
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!turnstileToken) {
+      alert("Please complete the Cloudflare verification first.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -25,7 +34,10 @@ export default function ContactPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken, // Siftna l-token l-backend
+        }),
       });
 
       const result = await response.json();
@@ -39,13 +51,16 @@ export default function ContactPage() {
           service: "paid-advertising",
           message: "",
         });
+        setTurnstileToken(null);
       } else {
         console.error(result.error);
-        alert("Error sending message. Please try again.");
+        alert(result.error || "Error sending message. Please try again.");
+        turnstileRef.current?.reset(); // Reset l-captcha ila tra error
       }
     } catch (err) {
       console.error("Submission error:", err);
       alert("Network error. Please check your connection.");
+      turnstileRef.current?.reset();
     } finally {
       setIsSubmitting(false);
     }
@@ -216,7 +231,7 @@ export default function ContactPage() {
           >
             {submitted ? (
               <motion.div
-                initial={{ opacity: 0, scale: 0.70 }}
+                initial={{ opacity: 0, scale: 0.7 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-16 space-y-4"
               >
@@ -347,10 +362,26 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {/* Cloudflare Turnstile Widget */}
+                <div className="flex justify-start">
+                  <Turnstile
+                    ref={turnstileRef}
+                    siteKey={
+                      process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY || ""
+                    }
+                    onSuccess={(token) => setTurnstileToken(token)}
+                    onError={() => setTurnstileToken(null)}
+                    onExpire={() => setTurnstileToken(null)}
+                    options={{
+                      theme: "auto",
+                    }}
+                  />
+                </div>
+
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full h-14 bg-[#E72D87] hover:bg-[#E72D87]/90 rounded-xl font-semibold text-white transition-all duration-300 relative flex items-center justify-center overflow-hidden cursor-pointer shadow-[0_4px_20px_rgba(231,45,135,0.25)] group"
+                  disabled={isSubmitting || !turnstileToken}
+                  className="w-full h-14 bg-[#E72D87] hover:bg-[#E72D87]/90 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl font-semibold text-white transition-all duration-300 relative flex items-center justify-center overflow-hidden cursor-pointer shadow-[0_4px_20px_rgba(231,45,135,0.25)] group"
                 >
                   {isSubmitting ? (
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

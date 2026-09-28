@@ -27,14 +27,6 @@ import { motion, Variants } from "framer-motion";
 import { FaTiktok, FaGoogle, FaFacebook } from "react-icons/fa6";
 import { BsBing } from "react-icons/bs";
 
-function MiniBadge({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-[#E72D87]/40 bg-[#E72D87]/10 px-1.5 py-0.5 text-[9px] font-semibold text-[#E72D87]">
-      {children}
-    </span>
-  );
-}
-
 const agencyAccounts = [
   {
     title: "Facebook Agency Ad Accounts",
@@ -96,6 +88,13 @@ function ContactBanner() {
         size="sm"
         variant="digest"
         className="h-8 rounded-lg gap-1.5 text-xs shrink-0 ml-4"
+        onClick={() =>
+          window.open(
+            "https://t.me/AdDigest_X1",
+            "_blank",
+            "noopener,noreferrer",
+          )
+        }
       >
         <Send className="h-3 w-3" />
         Telegram
@@ -273,21 +272,6 @@ export default function DigestLinearNavbar() {
                   Blog
                 </Link>
               </NavigationMenuItem>
-
-              {/* 4. OurTeam */}
-              <NavigationMenuItem>
-                <Link
-                  href="/team"
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    "bg-transparent hover:bg-pink-100/10 text-xs font-medium text-[#16060F]/80 dark:text-[#FCEFF5]/80 hover:text-[#E72D87] dark:hover:text-[#E72D87] inline-flex items-center gap-1.5",
-                    pathname === "/team" &&
-                      "text-[#E72D87] dark:text-pink-500 font-semibold",
-                  )}
-                >
-                  <span>Team</span>
-                </Link>
-              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </motion.div>
@@ -406,15 +390,6 @@ export default function DigestLinearNavbar() {
                       className="text-xs p-2 rounded-lg text-[#16060F]/80 dark:text-[#FCEFF5]/80 hover:text-[#E72D87] block"
                     >
                       <span>Blog</span>
-                    </Link>
-                  </motion.div>
-                  <motion.div variants={itemVariants}>
-                    <Link
-                      href="/team"
-                      onClick={() => setIsOpen(false)}
-                      className="text-xs p-2 rounded-lg text-[#16060F]/80 dark:text-[#FCEFF5]/80 hover:text-[#E72D87] flex items-center justify-between"
-                    >
-                      <span>Team</span>
                     </Link>
                   </motion.div>
                 </motion.div>

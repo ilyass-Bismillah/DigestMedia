@@ -4,7 +4,6 @@ import {
   TrendingUp,
   CheckCircle2,
   XCircle,
-  ArrowRight,
   ThumbsUp,
   Heart,
   Clock,
@@ -84,57 +83,6 @@ const FacebookPage = () => {
     },
   ];
 
-  const pricingTiers = [
-    {
-      name: "Starter Scaler",
-      badge: "Fast Launch",
-      price: "$299",
-      period: "/ month",
-      color: "border-purple-500/40 bg-purple-500/5",
-      accent: "text-purple-400",
-      btnColor: "bg-purple-500 hover:bg-purple-400 text-white",
-      features: [
-        "1 Meta Agency Account",
-        "Up to $10,000 / mo spend",
-        "Standard 24/7 Support",
-        "24h Replacement SLA",
-      ],
-    },
-    {
-      name: "Growth Agency",
-      badge: "Most Popular",
-      price: "$699",
-      period: "/ month",
-      color:
-        "border-fuchsia-500/50 bg-fuchsia-500/10 shadow-lg shadow-fuchsia-500/20",
-      accent: "text-fuchsia-400",
-      btnColor: "bg-fuchsia-500 hover:bg-fuchsia-400 text-white",
-      features: [
-        "3 Meta Agency Accounts",
-        "Up to $50,000 / mo spend",
-        "Dedicated Telegram Rep",
-        "1-Hour Replacement SLA",
-        "1.5% Ad Spend Cashback",
-      ],
-    },
-    {
-      name: "Enterprise Whale",
-      badge: "High Volume",
-      price: "$1,499",
-      period: "/ month",
-      color: "border-pink-500/40 bg-pink-500/5",
-      accent: "text-pink-400",
-      btnColor: "bg-pink-600 hover:bg-pink-500 text-white",
-      features: [
-        "Unlimited Agency Accounts",
-        "Unlimited Ad Spend",
-        "Direct Slack Room",
-        "Instant Priority Replacement",
-        "3.0% Cashback + Net-30",
-      ],
-    },
-  ];
-
   return (
     <div className="min-h-screen py-15">
       {/* Hero Section */}
@@ -160,7 +108,7 @@ const FacebookPage = () => {
             </p>
 
             <div className="flex gap-4 pt-2">
-              <Link href="https://t.me/" target="_blank" rel="noreferrer">
+              <Link href="https://t.me/@AdDigest_X1" target="_blank" rel="noreferrer">
                 <Button
                   variant={"digest"}
                   className="font-semibold flex items-center justify-center"
@@ -168,14 +116,7 @@ const FacebookPage = () => {
                   <Send className="w-3.5 h-3.5" /> Chat with us
                 </Button>
               </Link>
-              <Link href="#pricing">
-                <Button
-                  variant={"outline"}
-                  className="px-7 py-3.5 rounded-xl border dark:border-slate-700 dark:hover:border-slate-600 dark:bg-slate-900/60 font-semibold dark:text-slate-200 transition-all flex items-center justify-center gap-2"
-                >
-                  See Pricing <ArrowRight className="w-3.5 h-3.5" />
-                </Button>
-              </Link>
+             
             </div>
 
             <div className="flex items-center gap-6 pt-4 text-xs dark:text-slate-400 text-slate-600">
@@ -381,63 +322,6 @@ const FacebookPage = () => {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Cards */}
-      <section id="pricing" className="py-20">
-        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto">
-          <div className="text-center max-w-xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-3">
-              Transparent Scale Pricing
-            </h2>
-            <p className="dark:text-slate-400 text-slate-600 text-sm">
-              Choose the tier that matches your current monthly spend velocity.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {pricingTiers.map((tier, idx) => (
-              <div
-                key={idx}
-                className={`rounded-2xl border ${tier.color} p-7 flex flex-col justify-between relative`}
-              >
-                <div>
-                  <span
-                    className={`text-xs font-bold uppercase tracking-wider ${tier.accent}`}
-                  >
-                    {tier.badge}
-                  </span>
-                  <h3 className="text-xl font-bold mt-1 mb-4">{tier.name}</h3>
-                  <div className="flex items-baseline gap-1 mb-6">
-                    <span className="text-4xl font-extrabold">
-                      {tier.price}
-                    </span>
-                    <span className="dark:text-slate-400 text-slate-600 text-sm">
-                      {tier.period}
-                    </span>
-                  </div>
-
-                  <ul className="space-y-3 mb-8 text-sm dark:text-slate-300 text-slate-600">
-                    {tier.features.map((feat, i) => (
-                      <li key={i} className="flex items-center gap-2.5">
-                        <CheckCircle2
-                          className={`w-4 h-4 ${tier.accent} shrink-0`}
-                        />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <button
-                  className={`w-full py-3 rounded-xl font-semibold transition-all shadow-md ${tier.btnColor}`}
-                >
-                  Get Started
-                </button>
-              </div>
-            ))}
           </div>
         </div>
       </section>
