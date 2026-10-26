@@ -91,9 +91,9 @@ export default function AgencyPlatformHero() {
           speed={0.25}
           threadCount={5}
           frequency={4.0}
-          spread={0.2}
+          spread={0.3}
           position={0.5}
-          glow={0.03}
+          glow={0.02}
           thickness={1.2}
           brightness={0.8}
           opacity={0.85}
