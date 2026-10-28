@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Carousel,
@@ -10,6 +10,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import SectionBadge from "@/components/Badge";
 
 const testimonials = [
   {
@@ -49,6 +50,11 @@ const testimonials = [
       "/testimonial/avatar1.avif",
   },
 ];
+const loopTestimonials = [
+  ...testimonials,
+  ...testimonials,
+  ...testimonials,
+];
 
 export default function TestimonialsCarousel() {
   const [api, setApi] = useState<CarouselApi>();
@@ -56,14 +62,11 @@ export default function TestimonialsCarousel() {
 
   useEffect(() => {
     if (!api) return;
-
     const onSelect = () => {
       // selectedScrollSnap gives the correct internal tracking active index even with loop enabled
       setCurrent(api.selectedScrollSnap());
     };
-
     onSelect();
-
     // Replaced "select" with "settle" and "pointerUp" for snappier real-time transition updates
     api.on("select", onSelect);
     api.on("settle", onSelect);
@@ -107,15 +110,13 @@ export default function TestimonialsCarousel() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-lg mx-auto mb-20"
         >
-          <h2 className="inline-flex items-center rounded-full bg-rose-100 dark:bg-rose-950 px-3 py-1 text-sm font-medium text-[#E72D87] mb-6 border border-[#E72D87]/30">
-            Success Stories
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">
+          <SectionBadge text="Success Stories" />
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase my-4">
             What They{" "}
             <span className="font-serif italic font-light text-[#E72D87] lowercase">
               Say.
             </span>
-          </h3>
+          </h2>
         </motion.div>
 
         {/* Carousel Framework */}
@@ -125,11 +126,11 @@ export default function TestimonialsCarousel() {
             align: "center",
             loop: true,
           }}
-          className="w-full relative 2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto"
+          className="w-full relative 2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto"
         >
-          <CarouselContent className="md:-ml-6 flex items-stretch py-10">
-            {testimonials.map((t, index) => {
-              const isActive = index === current;
+          <CarouselContent className="md:-ml-6 flex items-stretch px-2 py-10">
+            {loopTestimonials.map((t, index) => {
+              const isActive = index  === current;
               return (
                 <CarouselItem
                   key={t.id}

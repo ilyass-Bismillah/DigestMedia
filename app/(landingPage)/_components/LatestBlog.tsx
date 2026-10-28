@@ -8,11 +8,11 @@ import { getAllPosts } from "@/lib/mdx";
 const LatestBlog = () => {
   const posts = getAllPosts().slice(0, 3);
   return (
-    <div className="py-15 lg:py-20 2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto">
+    <div className="py-15 lg:py-20 2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto">
       <div className="flex items-center justify-between mb-5">
-        <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
           Latest blogs
-        </h3>
+        </h2>
         <Link
           href="/blog"
           className="flex items-center gap-2 text-xs font-bold text-pink-500 hover:text-pink-400 transition-colors"

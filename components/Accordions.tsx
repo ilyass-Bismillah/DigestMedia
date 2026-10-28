@@ -68,7 +68,7 @@ export function AccordionBasic() {
   };
 
   return (
-    <div className="w-full max-w-sm md:max-w-2xl lg:max-w-4xl mx-auto space-y-4">
+    <div className="w-full px-5 md:max-w-2xl lg:max-w-4xl mx-auto space-y-4">
       {items.map((item) => {
         const isOpen = activeId === item.value;
 

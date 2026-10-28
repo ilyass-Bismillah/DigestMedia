@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* 1. Header Hero Banner */}
       <header className="relative p-15">
-        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto px-4 space-y-6">
+        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl mx-auto px-5 space-y-6">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 text-xs font-semibold text-pink-500 hover:text-pink-400 transition-colors"

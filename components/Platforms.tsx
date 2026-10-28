@@ -55,7 +55,7 @@ const Platforms = () => {
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1.7, ease: "easeInOut" }}
-        className="hidden md:block absolute top-25 left-[29%] right-[29%] h-1 bg-linear-to-r from-pink-100 dark:from-pink-300/80 via-pink-500 dark:via-pink-600/80 to-pink-100 dark:to-pink-300/80 z-0 origin-left"
+        className="hidden lg:block absolute top-25 left-[29%] right-[29%] h-1 bg-linear-to-r from-pink-100 dark:from-pink-300/80 via-pink-500 dark:via-pink-600/80 to-pink-100 dark:to-pink-300/80 z-0 origin-left"
       />
       <div className="grid grid-flow-col grid-rows-4 lg:flex lg:items-center justify-center gap-10">
         {platforms.map((platform, idx) => {

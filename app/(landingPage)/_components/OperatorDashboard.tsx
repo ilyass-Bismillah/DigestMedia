@@ -22,7 +22,7 @@ export default function OperatorDashboard() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [secondsSinceSync, setSecondsSinceSync] = useState<number>(0);
 
-  // 1. Initial Data Fetching (bla synchronous setState f bdayat l-effect)
+  // 1. Initial Data Fetching
   useEffect(() => {
     let isMounted = true;
 
@@ -50,7 +50,7 @@ export default function OperatorDashboard() {
     };
   }, []);
 
-  // 2. Manual Refresh Function (l l-button dyal Refresh)
+  // 2. Manual Refresh Function
   const handleManualRefresh = useCallback(async () => {
     setIsLoading(true);
     try {
@@ -65,7 +65,7 @@ export default function OperatorDashboard() {
     }
   }, []);
 
-  // 3. Live Timer dyal SYNCED Xs AGO
+  // 3. Live Timer SYNCED Xs AGO
   useEffect(() => {
     const interval = setInterval(() => {
       setSecondsSinceSync((prev) => prev + 1);
@@ -73,12 +73,12 @@ export default function OperatorDashboard() {
     return () => clearInterval(interval);
   }, []);
 
-  // 4. Dynamic Platforms List mn data li jat
+  // 4. Dynamic Platforms List
   const availablePlatforms = useMemo(() => {
     return Array.from(new Set(pods.map((p) => p.platform))) as PlatformType[];
   }, [pods]);
 
-  // 5. Dynamic Metrics Calculation mn l-pods direct
+  // 5. Dynamic Metrics Calculation pods direct
   const computedMetrics = useMemo(() => {
     const totalSpend = pods.reduce((acc, pod) => {
       const numeric = parseFloat(pod.spendCurrent.replace(/[^0-9.]/g, "")) || 0;
@@ -115,7 +115,7 @@ export default function OperatorDashboard() {
 
   return (
     <section className="py-15">
-      <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl mx-auto space-y-12">
+      <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto space-y-12">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div className="space-y-3">
@@ -389,7 +389,7 @@ export default function OperatorDashboard() {
 
                                 <DropdownMenuItem
                                   onClick={() => {
-                                    // Badel status dyal had l-pod direct f state
+                                    // status pod direct f state
                                     setPods((prev) =>
                                       prev.map((p) =>
                                         p.id === pod.id

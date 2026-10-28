@@ -83,7 +83,7 @@ const BingPage = () => {
     <div className="min-h-screen py-15">
       {/* Hero Section */}
       <section className="relative">
-        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto grid lg:grid-cols-12 gap-12 items-center">
+        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-pink-500/30 bg-pink-500/10 text-pink-500 text-xs font-medium tracking-wide">
               <Sparkles className="w-3.5 h-3.5" /> Official Microsoft
@@ -145,7 +145,7 @@ const BingPage = () => {
 
       {/* Grid of Key Features */}
       <section id="features" className="py-30">
-        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto">
+        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-bold mb-4">
               Engineered for Enterprise B2B & High-Ticket Brands
@@ -182,7 +182,7 @@ const BingPage = () => {
 
       {/* Comparison Table Section */}
       <section id="comparison" className="py-20">
-        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-lg max-w-sm mx-auto">
+        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-3">
               Microsoft Partner Accounts vs. Standard Bing Accounts

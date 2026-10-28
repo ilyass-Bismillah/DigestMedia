@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import SpotlightCard from "../../../components/SpotlightCard"; 
+import SectionBadge from "@/components/Badge";
 
 const Partners = [
   { name: "Google", src: "/OurPartners/google.svg" },
@@ -43,10 +44,8 @@ export default function OurPartners() {
       
       {/* Title Section */}
       <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y:0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className="w-full text-center mb-16 relative flex flex-col items-center justify-center">
-        <span className="inline-flex items-center rounded-full bg-rose-100/60 dark:bg-rose-950/30 px-3 py-1 text-xs font-semibold tracking-widest text-[#E72D87] mb-4 border border-[#E72D87]/20 uppercase">
-          Network
-        </span>
-        <h2 className="relative font-black tracking-tight text-4xl md:text-5xl text-foreground">
+        <SectionBadge text="Network" />
+        <h2 className="relative font-black tracking-tight text-4xl md:text-5xl mt-4 text-foreground">
           Our{" "}
           <span className="font-serif italic font-light text-[#E72D87]">
             Partners
@@ -55,7 +54,7 @@ export default function OurPartners() {
       </motion.div>
 
       {/* Grid Architecture Container */}
-      <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto px-6">
+      <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl mx-auto px-5">
         <motion.div 
           variants={containerVariants}
           initial="hidden"

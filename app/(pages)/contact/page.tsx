@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, ShieldCheck, Check, Zap } from "lucide-react";
 import Link from "next/link";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
+import SectionBadge from "@/components/Badge";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -83,16 +84,14 @@ export default function ContactPage() {
         }}
       />
 
-      <div className="w-full 2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto relative z-10 space-y-16">
+      <div className="w-full 2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto relative z-10 space-y-16">
         <motion.section
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-center max-w-2xl mx-auto space-y-4"
         >
-          <span className="inline-flex items-center rounded-full bg-rose-100 dark:bg-rose-950 px-3 py-1 text-sm font-medium text-[#E72D87] mb-6 border border-[#E72D87]">
-            Contact Us
-          </span>
+          <SectionBadge text="Contact Us" />
           <h2 className="text-4xl md:text-6xl font-normal tracking-tight">
             Get In{" "}
             <span className="font-serif italic font-light text-[#E72D87]">
@@ -404,9 +403,9 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <div className="mt-20">
+      <div className="mt-20 px-5">
         <iframe
-          className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto w-full h-96 rounded-2xl shadow-lg"
+          className="w-full h-96 2xl:max-w-7xl lg:max-w-6xl md:max-x-3xl mx-auto rounded-2xl shadow-lg"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3441.178253133852!2d-9.5867419!3d30.4026841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3c9b72d38ba8f%3A0xf31def6797e7645b!2sDigest%20media!5e0!3m2!1sen!2sma!4v1784473472551!5m2!1sen!2sma"
           loading="lazy"
           referrerPolicy="strict-origin-when-cross-origin"

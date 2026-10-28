@@ -88,7 +88,7 @@ export default function ChooseUs() {
 
   return (
     <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y:0 }} transition={{ duration: 0.8, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className="w-full py-24 px-6 lg:px-16 relative overflow-hidden font-sans">
-      <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative z-10">
+      <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative z-10">
         
         {/* Left Panel: Static/Sticky Info Engine */}
         <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-8">

@@ -2,6 +2,7 @@
 import React from "react";
 import { ClipboardList, Palette, Settings, CheckCircle2 } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import SectionBadge from "@/components/Badge";
 
 interface ProcessStep {
   id: number;
@@ -66,7 +67,7 @@ const stepVariants: Variants = {
 export default function OurProcessSection() {
   return (
     <motion.section initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y:0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className=" py-24 px-6 font-sans relative overflow-hidden">
-      <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto relative z-10">
+      <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,15 +75,13 @@ export default function OurProcessSection() {
           transition={{ duration: 1 }}
           className="text-center max-w-lg mx-auto mb-20"
         >
-          <h2 className="inline-flex items-center rounded-full bg-rose-100 dark:bg-rose-950 px-3 py-1 text-sm font-medium text-[#E72D87] mb-6 border border-[#E72D87]">
-            Process
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-normal tracking-tight mb-4 text-foreground">
+          <SectionBadge text="Process" />
+          <h2 className="text-4xl md:text-5xl font-normal tracking-tight my-4 text-foreground">
             Our{" "}
             <span className="font-serif italic font-light text-[#E72D87]">
               Process
             </span>
-          </h3>
+          </h2>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
             Ensure you secure the ideal solution that aligns seamlessly with
             your unique goals and aspirations.

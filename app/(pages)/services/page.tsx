@@ -266,7 +266,7 @@ export default function ServicesPage() {
         }}
       />
 
-      <div className="w-full 2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto relative z-10 space-y-12 md:space-y-16">
+      <div className="w-full 2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto relative z-10 space-y-12 md:space-y-16">
         <motion.section
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
@@ -289,7 +289,7 @@ export default function ServicesPage() {
         </motion.section>
 
         <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y:0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className="w-full flex flex-col md:flex-row md:justify-center pb-2 px-4">
-          <div className="flex flex-col lg:flex-row space-x-0 lg:space-x-3 p-2 bg-neutral-100 dark:bg-neutral-900/40 border border-border/60 backdrop-blur-md">
+          <div className="flex flex-col lg:flex-row space-x-0 lg:space-x-3 p-2 bg-neutral-100 dark:bg-neutral-900/40 border border-border/60 backdrop-blur-md rounded-xl">
             {(
               Object.keys(servicesData) as Array<keyof typeof servicesData>
             ).map((tabKey) => {

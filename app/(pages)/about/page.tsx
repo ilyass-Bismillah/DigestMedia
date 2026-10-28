@@ -91,7 +91,7 @@ export default function AboutPage() {
           </p>
         </motion.div>
 
-        <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto grid grid-cols-3 gap-8 text-center z-10">
+        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto grid grid-cols-3 gap-8 text-center z-10">
           {[
             { n: 50, l: "Brands Scaled" },
             { n: 99, l: "Retention Rate" },
@@ -117,7 +117,7 @@ export default function AboutPage() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.3, ease: "easeOut" }}
         viewport={{ once: true, margin: "-100px" }}
-        className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto py-24 relative"
+        className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto py-24 relative"
       >
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -180,7 +180,7 @@ export default function AboutPage() {
         className="relative h-[300vh]"
       >
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-          <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto w-full">
+          <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto w-full">
             {/* Header */}
             <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div className="space-y-3">
@@ -241,7 +241,7 @@ export default function AboutPage() {
         viewport={{ once: true, margin: "-100px" }}
         className="py-15 lg:py-24 relative overflow-hidden"
       >
-        <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto relative z-10">
+        <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto relative z-10">
           {/* Main Box */}
           <div className="relative px-5 py-10 md:p-15 rounded-[3rem] bg-neutral-100/70 dark:bg-neutral-900/60 border border-neutral-200 dark:border-white/10 backdrop-blur-2xl overflow-hidden shadow-2xl">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

@@ -101,7 +101,7 @@ export default function AgencyPlatformHero() {
           mouseStrength={0.35}
         />
       </div>
-      <div className="2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10 w-full  my-auto">
+      <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10 w-full  my-auto">
         {/* LEFT: COPY & ACTIONS */}
         <motion.div
           variants={containerVariants}
@@ -287,7 +287,7 @@ export default function AgencyPlatformHero() {
       </div>
 
       {/* BOTTOM PARTNER LOGO BANNER */}
-      <div className="w-full 2xl:max-w-7xl lg:max-w-6xl max-w-sm mx-auto px-4 md:px-6 pt-8 z-10">
+      <div className="w-full 2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl mx-auto px-5 pt-8 z-10">
         <div className="border-t border-[#E72D87]/15 pt-5 flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="text-[10px] font-semibold text-neutral-500 dark:text-[#FCEFF5]/40 uppercase tracking-widest shrink-0">
             Trusted by performance agencies using
