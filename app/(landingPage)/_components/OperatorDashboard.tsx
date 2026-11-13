@@ -5,7 +5,7 @@ import { AdServices } from "@/lib/adServices";
 import type { PodItem, DashboardMetrics, PlatformType } from "@/lib/types";
 import SectionBadge from "@/components/Badge";
 import { Button } from "@/components/ui/button";
-import { RotateCw } from "lucide-react";
+import { RotateCw, Check } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,6 +21,7 @@ export default function OperatorDashboard() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [secondsSinceSync, setSecondsSinceSync] = useState<number>(0);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
 
   // 1. Initial Data Fetching
   useEffect(() => {
@@ -78,7 +79,7 @@ export default function OperatorDashboard() {
     return Array.from(new Set(pods.map((p) => p.platform))) as PlatformType[];
   }, [pods]);
 
-  // 5. Dynamic Metrics Calculation pods direct
+  // 5. Dynamic Metrics Calculation
   const computedMetrics = useMemo(() => {
     const totalSpend = pods.reduce((acc, pod) => {
       const numeric = parseFloat(pod.spendCurrent.replace(/[^0-9.]/g, "")) || 0;
@@ -113,6 +114,12 @@ export default function OperatorDashboard() {
   const getCount = (platform: PlatformType): number =>
     pods.filter((p: PodItem) => p.platform === platform).length;
 
+  const handleCopyCode = (pod: PodItem) => {
+    void navigator.clipboard.writeText(pod.accountCode);
+    setCopiedId(pod.id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
   return (
     <section className="py-15">
       <div className="2xl:max-w-7xl lg:max-w-6xl md:max-w-3xl px-5 mx-auto space-y-12">
@@ -141,7 +148,7 @@ export default function OperatorDashboard() {
                 <div className="w-2.5 h-2.5 rounded-full dark:bg-zinc-700 bg-zinc-300"></div>
               </div>
               <div className="border border-neutral-200/60 dark:border-white/5 text-zinc-400 text-xs px-3 py-1 rounded-md">
-                app.digestmedia.io / fabric
+                app.digest-media.ma / fabric
               </div>
             </div>
             <div className="text-[11px] text-zinc-500">
@@ -159,7 +166,7 @@ export default function OperatorDashboard() {
                 {computedMetrics.dailySpend}
               </div>
               <div className="text-xs text-emerald-400 mt-2 flex items-center gap-1">
-                <span></span> {metrics?.dailySpendDelta ?? "12.4%"}
+                {metrics?.dailySpendDelta ?? "+ 12.4%"}
               </div>
             </div>
 
@@ -201,7 +208,7 @@ export default function OperatorDashboard() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search pods..."
-                  className="w-full border border-neutral-200/60 dark:border-white/5 rounded-lg px-3 py-1.5 text-xs placeholder-zinc-500 focus:outline-none focus:border-pink-500 transition-colors"
+                  className="w-full border border-neutral-200/60 dark:border-white/5 bg-transparent rounded-lg px-3 py-1.5 text-xs placeholder-zinc-500 focus:outline-none focus:border-pink-500 transition-colors"
                 />
               </div>
 
@@ -247,13 +254,12 @@ export default function OperatorDashboard() {
 
               <Button
                 variant={"digest"}
+                disabled={isLoading}
                 onClick={() => void handleManualRefresh()}
-                className="w-full h-12 transition-all flex items-center justify-center gap-2"
+                className="w-full h-11 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>
-                  <RotateCw />
-                </span>{" "}
-                Refresh data
+                <RotateCw className={`w-3.5 h-3.5 ${isLoading ? "animate-spin" : ""}`} />
+                {isLoading ? "Syncing..." : "Refresh data"}
               </Button>
             </div>
 
@@ -298,16 +304,21 @@ export default function OperatorDashboard() {
                           className="dark:hover:bg-zinc-900/40 hover:bg-zinc-200/30 transition-colors"
                         >
                           <td className="py-3.5 px-4">
-                            <div className="font-medium text-zinc-500 dark:text-zinc-300">
+                            <div className="font-medium text-zinc-700 dark:text-zinc-200">
                               {pod.name}
                             </div>
-                            <div className="text-[10px] text-zinc-500 mt-0.5">
-                              {pod.accountCode}
+                            <div className="text-[10px] text-zinc-500 mt-0.5 flex items-center gap-1.5">
+                              <span>{pod.accountCode}</span>
+                              {copiedId === pod.id && (
+                                <span className="text-emerald-400 inline-flex items-center gap-0.5">
+                                  <Check className="w-3 h-3" /> Copied
+                                </span>
+                              )}
                             </div>
                           </td>
-                          <td className="py-3.5 px-4 dark:text-zinc-300 text-zinc-500">
+                          <td className="py-3.5 px-4 dark:text-zinc-300 text-zinc-600">
                             {pod.spendCurrent}{" "}
-                            <span className="text-zinc-600">
+                            <span className="text-zinc-500">
                               / {pod.spendLimit}
                             </span>
                           </td>
@@ -330,10 +341,10 @@ export default function OperatorDashboard() {
                             <span
                               className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-medium tracking-wide border ${
                                 pod.status === "ACTIVE"
-                                  ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                                  ? "bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 border-emerald-500/20"
                                   : pod.status === "SCALING"
-                                    ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
-                                    : "bg-zinc-500/10 text-zinc-400 border-zinc-500/20"
+                                    ? "bg-amber-500/10 text-amber-500 dark:text-amber-400 border-amber-500/20"
+                                    : "bg-zinc-500/10 text-zinc-500 dark:text-zinc-400 border-zinc-500/20"
                               }`}
                             >
                               <span
@@ -350,20 +361,16 @@ export default function OperatorDashboard() {
                           </td>
                           <td className="py-3.5 px-4 text-right">
                             <DropdownMenu>
-                              <DropdownMenuTrigger className="text-zinc-500 hover:text-zinc-200 hover:bg-white/5 py-1 px-2 rounded-md transition-colors cursor-pointer">
-                                  ⋯
+                              <DropdownMenuTrigger className="text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-black/5 dark:hover:bg-white/5 py-1 px-2 rounded-md transition-colors cursor-pointer outline-none">
+                                ⋯
                               </DropdownMenuTrigger>
                               <DropdownMenuContent
                                 align="end"
-                                className="w-44 bg-[#11151c] border-white/10 text-zinc-300 text-xs"
+                                className="w-44 bg-white dark:bg-[#11151c] border-neutral-200 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-xs"
                               >
                                 <DropdownMenuItem
-                                  onClick={() =>
-                                    navigator.clipboard.writeText(
-                                      pod.accountCode,
-                                    )
-                                  }
-                                  className="cursor-pointer hover:bg-white/5 focus:bg-white/5"
+                                  onClick={() => handleCopyCode(pod)}
+                                  className="cursor-pointer hover:bg-black/5 dark:hover:bg-white/5 focus:bg-black/5 dark:focus:bg-white/5"
                                 >
                                   Copy Account Code
                                 </DropdownMenuItem>
@@ -380,16 +387,15 @@ export default function OperatorDashboard() {
                                             : "https://ads.snapchat.com";
                                     window.open(url, "_blank");
                                   }}
-                                  className="cursor-pointer hover:bg-white/5 focus:bg-white/5"
+                                  className="cursor-pointer hover:bg-black/5 dark:hover:bg-white/5 focus:bg-black/5 dark:focus:bg-white/5"
                                 >
                                   Open in {pod.platform}
                                 </DropdownMenuItem>
 
-                                <DropdownMenuSeparator className="bg-white/10" />
+                                <DropdownMenuSeparator className="bg-neutral-200 dark:bg-white/10" />
 
                                 <DropdownMenuItem
                                   onClick={() => {
-                                    // status pod direct f state
                                     setPods((prev) =>
                                       prev.map((p) =>
                                         p.id === pod.id
@@ -404,7 +410,7 @@ export default function OperatorDashboard() {
                                       ),
                                     );
                                   }}
-                                  className="cursor-pointer text-amber-400 hover:bg-amber-500/10 focus:bg-amber-500/10"
+                                  className="cursor-pointer text-amber-500 dark:text-amber-400 hover:bg-amber-500/10 focus:bg-amber-500/10"
                                 >
                                   {pod.status === "ACTIVE"
                                     ? "Pause Pod"
@@ -421,11 +427,11 @@ export default function OperatorDashboard() {
               </div>
 
               {/* Dynamic Status Bar */}
-              <div className="p-4 border-t dark:border-zinc-800/60 flex items-center justify-between text-[11px] text-zinc-500">
+              <div className="p-4 border-t border-neutral-200/60 dark:border-zinc-800/60 flex items-center justify-between text-[11px] text-zinc-500">
                 <span>
                   {filteredPods.length} OF {pods.length} PODS · LIVE
                 </span>
-                <div className="flex items-center gap-2 text-emerald-400">
+                <div className="flex items-center gap-2 text-emerald-500 dark:text-emerald-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                   SYNCED {secondsSinceSync}S AGO
                 </div>
